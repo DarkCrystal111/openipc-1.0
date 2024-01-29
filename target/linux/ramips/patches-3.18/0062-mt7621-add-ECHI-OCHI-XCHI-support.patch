@@ -16,7 +16,7 @@
  		/* EHCI, OHCI */
 --- a/drivers/usb/core/hub.c
 +++ b/drivers/usb/core/hub.c
-@@ -1261,7 +1261,7 @@ static void hub_quiesce(struct usb_hub *
+@@ -1266,7 +1266,7 @@ static void hub_quiesce(struct usb_hub *
  	if (type != HUB_SUSPEND) {
  		/* Disconnect all the children */
  		for (i = 0; i < hdev->maxchild; ++i) {
@@ -3802,7 +3802,7 @@
  	if (seg->trbs) {
  		dma_pool_free(xhci->segment_pool, seg->trbs, seg->dma);
  		seg->trbs = NULL;
-@@ -1482,9 +1485,17 @@ int xhci_endpoint_init(struct xhci_hcd *
+@@ -1483,9 +1486,17 @@ int xhci_endpoint_init(struct xhci_hcd *
  			max_burst = (usb_endpoint_maxp(&ep->desc)
  				     & 0x1800) >> 11;
  		}
